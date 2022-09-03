@@ -1,0 +1,13 @@
+[package]
+name = "helloworld_tiny"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+syscalls = { version = "*", default-features = false }
+
+[profile.release]
+lto = true
+opt-level = "z"
+panic = "abort"
+strip = true
