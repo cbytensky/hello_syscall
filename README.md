@@ -6,4 +6,4 @@ Building:
 
 Striping using [ELF kickers](https://github.com/BR903/ELFkickers)’ `sstrip`:
 
-```$ sstrip target/release/helloworld_tiny```
+```$ sstrip target/release/helloworld_syscall```
