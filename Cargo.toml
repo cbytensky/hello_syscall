@@ -1,13 +1,18 @@
+cargo-features = ["profile-rustflags"]
+
 [package]
-name = "helloworld_syscall"
+name = "hello_syscall"
 version = "0.1.0"
 edition = "2021"
+
+[profile.release]
+panic = "abort"
+opt-level = "z"
+rustflags = [
+	"-C", "link-arg=-nostartfiles",
+	"-C", "link-arg=-Wl,-N,--no-pie,-T,syscall.ld",
+]
 
 [dependencies]
 syscalls = { version = "*", default-features = false }
 
-[profile.release]
-lto = true
-opt-level = "z"
-panic = "abort"
-strip = true
